@@ -21,7 +21,7 @@ void	creat_push(char **argv)
 {
 	char	**split;
 	int		i;
-	t_push	*push;
+	t_stack	*stack;
 
 	i = 1;
 	push = malloc(sizeof(t_push) * 1);
@@ -40,7 +40,7 @@ void	creat_push_one_argument(char **argv)
 {
 	char	**split;
 	int		i;
-	t_push	*push;
+	t_stack	*push;
 
 	i = 0;
 	push = malloc(sizeof(t_push) * 1);
@@ -57,9 +57,9 @@ void	creat_push_one_argument(char **argv)
 
 int	main(int argc, char **argv)
 {
-//	t_push	*push;
+//	t_stack	*stack;
 
-	if (argc > 1)
+	if (argc >= 1)
 	{
 		if (argc == 2)
 		{

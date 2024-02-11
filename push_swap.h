@@ -18,10 +18,14 @@
 # include <stdio.h> //printf
 # include <limits.h>
 
-typedef struct s_push
+typedef struct s_stack
 {
-	int	*nums;
-}	t_push;
+	int		*sa;
+	int		*sb;
+	int		a_size;
+	int		b_size;
+	
+}		t_stack;
 
 /*split*/
 int		ft_is_delimiter(char c);
