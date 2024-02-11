@@ -20,28 +20,21 @@
 
 typedef struct s_stack
 {
-	int		*sa;
-	int		*sb;
+	int		*a;
+	int		*b;
 	int		a_size;
 	int		b_size;
 	
 }		t_stack;
 
 /*split*/
-int		ft_is_delimiter(char c);
-int		ft_words_len(char *str);
-char	*ft_get_word(char *str);
 char	**ft_split(char *str);
-/* static int	count(char const *s, char c);
-void		clear(char **matrix);
-static	int	diferentes(char const *s, char c);
-char		**rellena(char **matrix, const char *s, char c);
-char		**ft_split(char const *s, char c); */
 
 /*check*/
-int		check(char **argv);
+void	check_arguments(char **argv, int argc);
 
 /*main*/
+void	free_exit(t_stack *s, char *msg);
 int		main(int argc, char **argv);
 
 /*utils*/

@@ -12,12 +12,12 @@
 
 #include "push_swap.h"
 
-int	ft_is_delimiter(char c)
+static int	ft_is_delimiter(char c)
 {
 	return (c == ' ' || c == '\n' || c == '\t');
 }
 
-int	ft_words_len(char *str)
+static int	ft_words_len(char *str)
 {
 	int	idx;
 	int	length;
@@ -37,7 +37,7 @@ int	ft_words_len(char *str)
 	return (length);
 }
 
-char	*ft_get_word(char *str)
+static char	*ft_get_word(char *str)
 {
 	int			idx;
 	char		*word;

@@ -12,34 +12,30 @@
 
 #include "push_swap.h"
 
-void free_exit(t_stack *s, char *msg)
+static int check_util(char c, char c1)
 {
-	int i;
-
-	i++;
-	if (msg)
-		while (msg[i])
-			write (1, &s, 1);
-	if (s != NULL)
-	{
-		if (s->a != NULL)
-			free(s->a);
-		if (s->b != NULL)
-			free(s->b);
-		if (s != NULL)
-			free (s);
-	}
-	exit(1);
+		if (c == '+' && c1 == '\0')
+			return (1);
+		else if (c == '-' && c1 == '\0')
+			return (1);
+		else if (c == '+' && c1 == ' ')
+			return (1);
+		else if (c == '-' && c1 == ' ')
+			return (1);
+		else if (c == ' ' && c1 == '\0')
+			return (1);
+		else if (!(c <= '9' || c >= '0'))
+			return (1);
+		else
+			return (0);
 }
 
-int	check(char **argv)
+void	check_arguments(char **argv, int argc)
 {
 	int	i;
 	int	j;
-	int	okey;
 
 	i = 0;
-	okey = 0;
 	while (i++ < argc)
 	{
 		j = 0;
@@ -47,10 +43,24 @@ int	check(char **argv)
 			free_exit (NULL, "Error\n");
 		while (argv[i][j] != '\0')
 		{
-			if ((!(argv[i][j] <= 48 || argv[i][j] >= 57) && argv[i][j] != ' ') && argv[i][j] != '-' && argv[i][j] != '+') || (argv[i][j] == '-' && argv[i][j + 1] == '\0') || (argv[i][j] == '+' && argv[i][j + 1] == '\0' || (argv[i][j] == '-' && argv[i][j + 1] == ' ') || (argv[i][j] == '-' && argv[i][j + 1] == ' ')) 
-				free_exit (NULL, "Error"\n");
+			if (check_util(argv[i][j], argv[i][j +1]) == 1)
+			free_exit (NULL, "Error\n");			
 			j++;
 		}
 	}
-	return (okey);
+}
+
+void	check_duplicate(t_stack *stack)
+{
+	int i;
+	int	j;
+
+	i = -1;
+	while (i++ < stack->a_size)
+	{
+		j = i + 1;
+		while (j++ < stack->a_size)
+			if (stack->a[i] == stack->a[j])
+				free_exit (stack, "Error\n");
+	}
 }
