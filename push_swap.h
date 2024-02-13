@@ -30,11 +30,18 @@ typedef struct s_stack
 /*split*/
 char	**ft_split(char *str);
 
+/*stacks*/
+void	init_stacks(t_stack *stack, int argc, char **argv);
+void	fill_stack(t_stack *stack, int argc, char **argv);
+
 /*check*/
 void	check_arguments(char **argv, int argc);
+void	check_duplicate(t_stack *stack);
+
+/*free and exit*/
+void	free_exit(t_stack *s, char *msg);
 
 /*main*/
-void	free_exit(t_stack *s, char *msg);
 int		main(int argc, char **argv);
 
 /*utils*/

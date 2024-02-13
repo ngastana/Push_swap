@@ -1,5 +1,6 @@
+#include "push_swap.h"
 
-void free_exit(t_stack *s, char *msg)
+void free_exit(t_stack *stack, char *msg)
 {
 	int i;
 
@@ -7,14 +8,14 @@ void free_exit(t_stack *s, char *msg)
 	if (msg)
 		while (msg[i++])
 			write (1, &msg[i], 1);
-	if (s != NULL)
+	if (stack != NULL)
 	{
-		if (s->a != NULL)
-			free(s->a);
-		if (s->b != NULL)
-			free(s->b);
-		if (s != NULL)
-			free (s);
+		if (stack->a != NULL)
+			free(stack->a);
+		if (stack->b != NULL)
+			free(stack->b);
+		if (stack != NULL)
+			free (stack);
 	}
 	exit(1);
 }

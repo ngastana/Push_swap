@@ -1,15 +1,21 @@
+#include "push_swap.h"
 
+//mirar si es frase o no, si es contar numeros que hay, sino se sma por cada argc
 
 void	init_stacks(t_stack *stack, int argc, char **argv)
 {
 	int	i;
 
+	i = 0;
 	stack->a_size = 0;
 	stack->b_size = 0;
-	
+	while (--argc > 0)
+	{
+		if (argv[i +1] == ' ')
+	}
 }
 
-void	fill_stack(int argc, char **argv, t_stack *stack)
+void	fill_stack(t_stack *stack, int argc, char **argv)
 {
 	char	**split;
 	int		i;
@@ -18,8 +24,8 @@ void	fill_stack(int argc, char **argv, t_stack *stack)
 	split = ft_split(*argv);
 	while (split[i])
 	{
-		push->nums[i] = atoi_long(split[i]);
+		stack->a[i] = atoi_long(split[i]);
 		i++;
-		printf ("%di", push->nums[i]);
+		printf ("%di", stack->a[i]);
 	}
 } 
