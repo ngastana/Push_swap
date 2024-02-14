@@ -6,7 +6,7 @@
 #    By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/01 12:49:05 by ngastana          #+#    #+#              #
-#    Updated: 2024/02/09 11:32:11 by ngastana         ###   ########.fr        #
+#    Updated: 2024/02/14 10:26:17 by ngastana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ INCLUDE = ./push_swap.h
 
 CC = gcc
 RM = rm -f
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 
 # Colours
 RED					=	\033[0;31m

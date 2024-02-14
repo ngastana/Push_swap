@@ -6,12 +6,12 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:26:16 by ngastana          #+#    #+#             */
-/*   Updated: 2024/02/09 12:18:20 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/02/14 10:54:17 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP
-# define PUSH_SWAP
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 # include <unistd.h> // write
 # include <stdlib.h> //malloc
@@ -24,7 +24,6 @@ typedef struct s_stack
 	int		*b;
 	int		a_size;
 	int		b_size;
-	
 }		t_stack;
 
 /*split*/

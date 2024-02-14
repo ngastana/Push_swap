@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   free_exit.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/14 09:59:29 by ngastana          #+#    #+#             */
+/*   Updated: 2024/02/14 09:59:47 by ngastana         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void free_exit(t_stack *stack, char *msg)
+void	free_exit(t_stack *stack, char *msg)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	if (msg)
