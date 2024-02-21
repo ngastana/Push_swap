@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 13:03:27 by ngastana          #+#    #+#             */
-/*   Updated: 2024/02/21 11:13:05 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/02/21 11:17:04 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,7 @@ void	check_arguments(char **argv, int argc)
 		while (argv[i][j] != '\0')
 		{
 			if (check_util(argv[i][j], argv[i][j +1]) == 1)
-			{
 				free_exit (NULL, "Error\n");
-			}
 			j++;
 		}
 		i++;

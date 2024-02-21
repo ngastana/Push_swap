@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:26:16 by ngastana          #+#    #+#             */
-/*   Updated: 2024/02/21 10:35:28 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/02/21 12:20:41 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h> //malloc
 # include <stdio.h> //printf
 # include <limits.h>
+# include <math.h>
 
 typedef struct s_stack
 {
@@ -24,19 +25,9 @@ typedef struct s_stack
 	int		*b;
 	int		a_size;
 	int		b_size;
+	int		*rmove;
+	int		*rrmove;
 }		t_stack;
-
-typedef struct s_moves
-{
-	int			elem;
-	int			a_moves;
-	char		*a_rot_type;
-	char		*b_rot_type;
-	char		*common_rot;
-	int			b_moves;
-	int			common_moves;
-	int			total;
-}		t_moves;
 
 /*split*/
 char	**ft_split(char *str);
