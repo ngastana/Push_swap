@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:18:49 by ngastana          #+#    #+#             */
-/*   Updated: 2024/02/09 11:41:40 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/02/20 08:21:13 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,50 @@ long	atoi_long(char *str)
 		i++;
 	}
 	return (nb);
+}
+
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	unsigned int	i;
+	char			*str2;
+	char			*str3;
+
+	str2 = (char *) src;
+	str3 = (char *) dest;
+	i = 0;
+	if (str2 == str3 || n == 0)
+		return (dest);
+	while (i < n)
+	{
+		str3[i] = str2[i];
+		i++;
+	}
+	dest = str3;
+	return (dest);
+}
+
+void	*ft_memmove(void *dst, const void *src, size_t len)
+{
+	unsigned int	i;
+	char			*str1;
+	char			*str2;
+
+	i = 0;
+	str1 = (char *)dst;
+	str2 = (char *)src;
+	if (str2 == str1 || len == 0)
+		return (str1);
+	if (str2 < str1)
+	{
+		i = len;
+		while (i-- > 0)
+			str1[i] = str2[i];
+		return (str1);
+	}
+	else
+	{
+		str1 = ft_memcpy(dst, src, len);
+	}
+	dst = str1;
+	return (dst);
 }
