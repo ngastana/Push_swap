@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:18:49 by ngastana          #+#    #+#             */
-/*   Updated: 2024/02/20 08:21:13 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/02/21 11:15:12 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ long	atoi_long(char *str)
 		nb = (str[i] -48) + (nb * 10);
 		i++;
 	}
-	return (nb);
+	return (nb * n);
 }
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)

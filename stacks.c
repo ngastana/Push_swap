@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 09:44:30 by ngastana          #+#    #+#             */
-/*   Updated: 2024/02/20 07:49:40 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/02/21 09:19:32 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,4 @@ void	fill_stack(t_stack *stack, int argc, char **argv)
 			i++;
 		}
 	}
-	stack->b_size = stack->a_size;
 }

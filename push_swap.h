@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:26:16 by ngastana          #+#    #+#             */
-/*   Updated: 2024/02/20 10:23:56 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/02/21 10:35:28 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,18 @@ typedef struct s_stack
 	int		a_size;
 	int		b_size;
 }		t_stack;
+
+typedef struct s_moves
+{
+	int			elem;
+	int			a_moves;
+	char		*a_rot_type;
+	char		*b_rot_type;
+	char		*common_rot;
+	int			b_moves;
+	int			common_moves;
+	int			total;
+}		t_moves;
 
 /*split*/
 char	**ft_split(char *str);
@@ -48,8 +60,13 @@ void	push(char *str, t_stack *stack);
 void	swap(char *str, int *array, int size);
 void	rotate(int *array, int size, char *direction, char stack);
 
+/*verify_find*/
+int		verify_order(int *stack, int size);
+int		find_smaller_place(int *stack, int size);
+
 /*sort*/
 void	rank_three(t_stack *stack);
+void	rank_four_five(t_stack *stack);
 
 /*check*/
 void	check_arguments(char **argv, int argc);
