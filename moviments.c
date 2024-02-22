@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 07:48:42 by ngastana          #+#    #+#             */
-/*   Updated: 2024/02/20 10:30:25 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/02/22 20:08:37 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,9 @@ void	rotate(int *array, int size, char *direction, char stack)
 		array[0] = tmp;
 		write(1, "rr", 2);
 	}
-	write (1, &stack, 1);
-	write (1, "\n", 1);
+	if (stack != ' ')
+	{
+		write (1, &stack, 1);
+		write (1, "\n", 1);
+	}
 }

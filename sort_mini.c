@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   sort_mini.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 08:50:11 by ngastana          #+#    #+#             */
-/*   Updated: 2024/02/21 10:49:55 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/02/22 16:03:47 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rank_three(t_stack *stack)
+void	rank_three(int *stack, int size)
 {
-	if (stack->a_size == 3 && verify_order(stack->a, stack->a_size) == 1)
+	if (size == 3 && verify_order(stack, size) == 1)
 	{
-		if (stack->a[1] > stack->a[2] && stack->a[0] > stack->a[1])
+		if (stack[1] > stack[2] && stack[0] > stack[1])
 		{
-			swap("sa", stack->a, stack->a_size);
-			rotate (stack->a, stack->a_size, "down", 'a');
+			swap("sa", stack, size);
+			rotate (stack, size, "down", 'a');
 			return ;
 		}
-		if (stack->a[1] > stack->a[2])
-			rotate (stack->a, stack->a_size, "down", 'a');
+		if (stack[1] > stack[2])
+			rotate (stack, size, "down", 'a');
 	}
-	if (stack->a_size == 3 || stack->a_size == 2)
+	if (size == 3 || size == 2)
 	{
-		while (stack->a[0] > stack->a[1])
-			swap("sa", stack->a, stack->a_size);
+		while (stack[0] > stack[1])
+			swap("sa", stack, size);
 	}
 }
 
@@ -52,7 +52,7 @@ void	rank_four_five(t_stack *stack)
 			else
 				rotate(stack->a, stack->a_size, "down", 'a');
 		}
-		rank_three(stack);
+		rank_three(stack->a, stack->a_size);
 		while (i != 0)
 		{
 			push("pa", stack);

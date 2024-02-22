@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:26:16 by ngastana          #+#    #+#             */
-/*   Updated: 2024/02/21 12:20:41 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/02/22 20:15:43 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,18 @@ typedef struct s_stack
 	int		*b;
 	int		a_size;
 	int		b_size;
+}			t_stack;
+
+typedef struct s_move
+{
 	int		*rmove;
 	int		*rrmove;
-}		t_stack;
+	int		*rarrbmove;
+	int		*rbrramove;
+	int		*num_move;
+	int		num;
+	int		position;
+}			t_move;	
 
 /*split*/
 char	**ft_split(char *str);
@@ -56,7 +65,7 @@ int		verify_order(int *stack, int size);
 int		find_smaller_place(int *stack, int size);
 
 /*sort*/
-void	rank_three(t_stack *stack);
+void	rank_three(int *stack, int size);
 void	rank_four_five(t_stack *stack);
 
 /*check*/
@@ -65,6 +74,24 @@ void	check_duplicate(t_stack *stack);
 
 /*free and exit*/
 void	free_exit(t_stack *s, char *msg);
+void	free_move(t_move *move);
+
+/*rotate_move*/
+void	rotate_move(t_stack *stack, t_move *move);
+void	rrotate_move(t_stack *stack, t_move *move);
+void	rarrbrotate_move(t_stack *stack, t_move *move);
+void	rbrrarotate_move(t_stack *stack, t_move *move);
+
+/*best_num_to_b*/
+void	count_move(t_stack *stack, t_move *move);
+void	best_num_to_b(t_stack *stack, t_move *move);
+int		position_b(t_stack *stack, t_move *move);
+
+/*move_to_b*/
+void	move_to_b(t_stack *stack, t_move *move);
+
+/*sort_max*/
+void	rank_whatever(t_stack *stack);
 
 /*main*/
 int		main(int argc, char **argv);

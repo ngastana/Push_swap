@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 09:44:30 by ngastana          #+#    #+#             */
-/*   Updated: 2024/02/21 09:19:32 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/02/22 16:52:43 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	init_stacks(t_stack *stack, int argc, char **argv)
 	stack->a = malloc (sizeof(int) * stack->a_size);
 	stack->b = malloc (sizeof(int) * stack->a_size);
 	if (!(stack->b || stack->a))
-		free_exit(stack, "Eror\n");
+		free_exit(stack, "Error\n");
 }
 
 static void	fill_stack_argu_two(t_stack *stack, char **argv)

@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:59:20 by ngastana          #+#    #+#             */
-/*   Updated: 2024/02/21 09:27:30 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/02/22 19:11:43 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ int	main(int argc, char **argv)
 		init_stacks(stack, argc, argv);
 		fill_stack(stack, argc, argv);
 		check_duplicate(stack);
-		rank_three(stack);
+		rank_three(stack->a, stack->a_size);
 		rank_four_five(stack);
+		rank_whatever(stack);
 		while (i < stack->a_size)
 		{
 			printf("%i\n", stack->a[i]);

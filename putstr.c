@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "unistd.h"
+#include "push_swap.h"
 
 void	putstr(char *s)
 {
@@ -22,5 +22,6 @@ void	putstr(char *s)
 		write(1, &s[i], 1);
 		i++;
 	}
-	write(1, "\n", 1);
+	if (s[0] != ' ')
+		write(1, "\n", 1);
 }

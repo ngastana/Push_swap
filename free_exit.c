@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 09:59:29 by ngastana          #+#    #+#             */
-/*   Updated: 2024/02/14 09:59:47 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/02/22 19:26:20 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,21 @@ void	free_exit(t_stack *stack, char *msg)
 			free (stack);
 	}
 	exit(1);
+}
+
+void	free_move(t_move *move)
+{
+	if (move != NULL)
+	{
+		if (move->rarrbmove != NULL)
+			free(move->rarrbmove);
+		if (move->rmove != NULL)
+			free(move->rmove);
+		if (move->rbrramove != NULL)
+			free (move->rbrramove);
+		if (move->rrmove != NULL)
+			free (move->rrmove);
+		if (move->num_move != NULL)
+			free (move->num_move);
+	}
 }
