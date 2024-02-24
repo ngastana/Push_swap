@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 13:03:27 by ngastana          #+#    #+#             */
-/*   Updated: 2024/02/21 11:17:04 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/02/24 11:40:35 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static int	check_util(char c, char c1)
 		return (0);
 }
 
+// CUANDO PONGO 0 ME DA ERROR Y SI QUITO ESTE ERROR SE ME DESACAPRECE POQUE
 void	check_arguments(char **argv, int argc)
 {
 	int	i;
@@ -39,9 +40,7 @@ void	check_arguments(char **argv, int argc)
 	while (i < argc)
 	{
 		j = 0;
-		if (!argv[i][0])
-			free_exit (NULL, "Error\n");
-		while (argv[i][j] != '\0')
+		while (argv[i][j])
 		{
 			if (check_util(argv[i][j], argv[i][j +1]) == 1)
 				free_exit (NULL, "Error\n");

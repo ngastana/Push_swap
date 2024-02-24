@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 16:43:11 by ngastana          #+#    #+#             */
-/*   Updated: 2024/02/22 19:47:59 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/02/24 10:40:27 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,19 @@ int	position_b(t_stack *stack, t_move *move)
 {
 	int		i;
 	int		num_b;
+	int		position;
 
 	i = 0;
+	position = 0;
 	num_b = stack->b[i];
-	while (i != stack->b_size)
+	while (i < stack->b_size)
 	{
 		if ((stack->b[i] > num_b) && (stack->b[i] < stack->a[move->position]))
-			num_b = i;
+		{
+			num_b = stack->b[i];
+			position = i;
+		}
 		i++;
 	}
-	return (num_b);
+	return (position);
 }

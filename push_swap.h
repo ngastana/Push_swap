@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:26:16 by ngastana          #+#    #+#             */
-/*   Updated: 2024/02/22 20:15:43 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/02/24 11:34:10 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,20 +61,22 @@ void	swap(char *str, int *array, int size);
 void	rotate(int *array, int size, char *direction, char stack);
 
 /*verify_find*/
-int		verify_order(int *stack, int size);
+int		verify_order(int *array, int size);
 int		find_smaller_place(int *stack, int size);
 
 /*sort*/
-void	rank_three(int *stack, int size);
+void	rank_three_a(int *stack, int size);
+void	rank_three_b(int *stack, int size);
 void	rank_four_five(t_stack *stack);
 
 /*check*/
 void	check_arguments(char **argv, int argc);
 void	check_duplicate(t_stack *stack);
+int		is_circular(int *arr, int size);
 
 /*free and exit*/
 void	free_exit(t_stack *s, char *msg);
-void	free_move(t_move *move);
+void	free_move(t_move *move, char *msg);
 
 /*rotate_move*/
 void	rotate_move(t_stack *stack, t_move *move);
