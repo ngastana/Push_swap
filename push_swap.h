@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:26:16 by ngastana          #+#    #+#             */
-/*   Updated: 2024/02/24 11:34:10 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/02/27 18:36:55 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	rotate(int *array, int size, char *direction, char stack);
 
 /*verify_find*/
 int		verify_order(int *array, int size);
-int		find_smaller_place(int *stack, int size);
+int		f_s_place(int *stack, int size);
 
 /*sort*/
 void	rank_three_a(int *stack, int size);

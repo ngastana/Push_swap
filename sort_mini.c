@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 08:50:11 by ngastana          #+#    #+#             */
-/*   Updated: 2024/02/24 11:33:48 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/02/27 18:39:46 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,11 @@ void	rank_four_five(t_stack *stack)
 		i = 2;
 	if ((stack->a_size == 5 || stack->a_size == 4))
 	{
-		while (stack->b_size < i)
+		while (stack->b_size != i && verify_order(stack->a, stack->a_size) == 1)
 		{
-			if (verify_order(stack->a, stack->a_size) == 0)
-				return ;
-			else if (find_smaller_place(stack->a, stack->a_size) == 0)
+			if (f_s_place(stack->a, stack->a_size) == 0)
 				push("pb", stack);
-			else if (find_smaller_place(stack->a, stack->a_size) < 3)
+			else if (f_s_place(stack->a, stack->a_size) < 3)
 				rotate(stack->a, stack->a_size, "up", 'a');
 			else
 				rotate(stack->a, stack->a_size, "down", 'a');
@@ -78,5 +76,6 @@ void	rank_four_five(t_stack *stack)
 			push("pa", stack);
 			i--;
 		}
+		free_exit(stack, "");
 	}
 }

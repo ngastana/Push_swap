@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 07:48:42 by ngastana          #+#    #+#             */
-/*   Updated: 2024/02/24 11:49:51 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/02/27 19:28:35 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,7 @@ void	rotate(int *array, int size, char *direction, char stack)
 		ft_memmove(array + 1, array, sizeof(int) * (size - 1));
 		write(1, "rr", 2);
 	}
-	if (stack == 'r')
-		write(1, "r\n", 2);
-	if (stack != 'r' && stack != ' ')
+	if (stack != ' ')
 	{
 		write (1, &stack, 1);
 		write (1, "\n", 1);
