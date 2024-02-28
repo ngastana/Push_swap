@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 16:43:11 by ngastana          #+#    #+#             */
-/*   Updated: 2024/02/27 19:01:22 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/02/28 14:11:13 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	count_move(t_stack *stack, t_move *move)
 	}
 }
 
+//FALLO, NO TIENES QUE PILLA EL NUMERO MAS PEQUEÑO!!
 void	best_num_to_b(t_stack *stack, t_move *move)
 {
 	int		i;
@@ -57,7 +58,7 @@ int	position_b(t_stack *stack, t_move *move)
 
 	i = 0;
 	position = 0;
-	num_b = stack->b[i];
+	num_b = stack->b[f_s_place(stack->b, stack->b_size)];
 	while (i < stack->b_size)
 	{
 		if ((stack->b[i] > num_b) && (stack->b[i] < stack->a[move->position]))

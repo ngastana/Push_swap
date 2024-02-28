@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 07:48:42 by ngastana          #+#    #+#             */
-/*   Updated: 2024/02/27 19:28:35 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/02/28 13:58:50 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,25 @@
 
 void	push(char *str, t_stack *stack)
 {
-	int	tmp;
-
 	if (str[1] == 'a')
 	{
 		if (stack->b_size <= 0)
 			return ;
-		tmp = stack->b[0];
+		stack->a_size++;
 		ft_memmove(stack->a + 1, stack->a, sizeof(int) * stack->a_size);
-		stack->a[0] = tmp;
+		stack->a[0] = stack->b[0];
 		stack->b_size--;
 		ft_memmove(stack->b, stack->b + 1, sizeof(int) * stack->b_size);
-		stack->a_size++;
 	}
 	else if (str[1] == 'b')
 	{
 		if (stack->a_size <= 0)
 			return ;
-		tmp = stack->a[0];
+		stack->b_size++;
 		ft_memmove(stack->b + 1, stack->b, sizeof(int) * stack->b_size);
-		stack->b[0] = tmp;
+		stack->b[0] = stack->a[0];
 		stack->a_size--;
 		ft_memmove(stack->a, stack->a + 1, sizeof(int) * stack->a_size);
-		stack->b_size++;
 	}
 	putstr(str);
 }
@@ -70,7 +66,10 @@ void	rotate(int *array, int size, char *direction, char stack)
 	{
 		tmp = array[size - 1];
 		ft_memmove(array + 1, array, sizeof(int) * (size - 1));
-		write(1, "rr", 2);
+		array[0] = tmp;
+		if (direction[4] != ' ')
+			write(1, "r", 1);
+		write(1, "r", 1);
 	}
 	if (stack != ' ')
 	{

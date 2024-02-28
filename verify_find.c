@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 07:54:13 by ngastana          #+#    #+#             */
-/*   Updated: 2024/02/27 18:37:05 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/02/28 11:13:19 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	verify_order(int *stack, int size)
 	int	i;
 
 	i = 0;
-	while (i +1 < size)
+	while (i < size -1)
 	{
 		if (stack[i] > stack[i +1])
 			return (1);

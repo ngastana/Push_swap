@@ -6,49 +6,53 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 08:50:11 by ngastana          #+#    #+#             */
-/*   Updated: 2024/02/27 18:39:46 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/02/28 12:07:00 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rank_three_a(int *stack, int size)
+void	rank_three_a(t_stack *s, int *stack, int size)
 {
-	if (size == 3 && verify_order(stack, size) == 1)
+	if (size == 3 && verify_order(s->a, size) == 1)
 	{
 		if (stack[1] > stack[2] && stack[0] > stack[1])
 		{
-			swap("sa", stack, size);
-			rotate (stack, size, "down", 'a');
-			return ;
+			swap("sa", s->a, size);
+			rotate(s->a, size, "down", 'a');
 		}
-		if (stack[1] > stack[2])
-			rotate (stack, size, "down", 'a');
+		if (stack[0] > stack[1] && stack[1] < stack[2] && stack[0] > stack[2])
+			rotate (s->a, size, "up", 'a');
+		if (s->a[1] > s->a[2] && stack[0] < stack[1] && stack[0] > stack[2])
+			rotate (s->a, size, "down", 'a');
+		if (s->a[1] > s->a[2] && stack[0] < stack[1] && stack[0] < stack[2])
+		{
+			rotate (s->a, size, "down", 'a');
+			swap("sa", s->a, size);
+		}
 	}
-	if (size == 3 || size == 2)
-	{
-		while (stack[0] > stack[1])
-			swap("sa", stack, size);
-	}
+	if ((size == 3 || size == 2) && (s->a[0] > s->a[1]))
+		swap("sa", s->a, size);
 }
 
-void	rank_three_b(int *stack, int size)
+void	rank_three_b(t_stack *s, int *stack, int size)
 {
 	if (size == 3 && verify_order(stack, size) == 1)
 	{
 		if (stack[1] < stack[2] && stack[0] < stack[1])
 		{
-			rotate (stack, size, "down", 'b');
-			rotate (stack, size, "down", 'b');
-			return ;
+			swap("sb", s->b, s->b_size);
+			rotate(s->b, s->b_size, "down", 'b');
 		}
-		if (stack[1] < stack[2])
-			rotate (stack, size, "down", 'b');
-	}
-	if (size == 3 || size == 2)
-	{
-		while (stack[0] < stack[1])
-			swap("sa", stack, size);
+		if (stack[1] < stack[2] && stack[0] > stack[1] && stack[0] > stack[2])
+		{
+			swap("sb", s->b, s->b_size);
+			rotate (s->b, s->b_size, "up", 'b');
+		}
+		if (stack[1] > stack[2] && stack[0] < stack[1] && stack[0] > stack[2])
+			swap("sb", s->b, s->b_size);
+		if (s->b[1] > s->b[2] && stack[0] < stack[1] && stack[0] < stack[2])
+			rotate (s->b, size, "up", 'b');
 	}
 }
 
@@ -67,15 +71,16 @@ void	rank_four_five(t_stack *stack)
 				push("pb", stack);
 			else if (f_s_place(stack->a, stack->a_size) < 3)
 				rotate(stack->a, stack->a_size, "up", 'a');
-			else
+			else if (f_s_place(stack->a, stack->a_size) >= 3)
 				rotate(stack->a, stack->a_size, "down", 'a');
 		}
-		rank_three_a(stack->a, stack->a_size);
+		rank_three_a(stack, stack->a, stack->a_size);
 		while (i != 0)
 		{
 			push("pa", stack);
 			i--;
 		}
+		i = -1;
 		free_exit(stack, "");
 	}
 }

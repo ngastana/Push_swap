@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:26:16 by ngastana          #+#    #+#             */
-/*   Updated: 2024/02/27 18:36:55 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/02/28 07:25:16 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ int		verify_order(int *array, int size);
 int		f_s_place(int *stack, int size);
 
 /*sort*/
-void	rank_three_a(int *stack, int size);
-void	rank_three_b(int *stack, int size);
+void	rank_three_a(t_stack *s, int *stack, int size);
+void	rank_three_b(t_stack *s, int *stack, int size);
 void	rank_four_five(t_stack *stack);
 
 /*check*/
