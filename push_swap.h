@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:26:16 by ngastana          #+#    #+#             */
-/*   Updated: 2024/02/28 07:25:16 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/03/01 19:24:22 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,16 @@ typedef struct s_stack
 {
 	int		*a;
 	int		*b;
+	int		**table;
 	int		a_size;
 	int		b_size;
+	int		highest_b;
+	int		lowest_b;
+	int		r;
+	int		rr;
+	int		rarrb;
+	int		rbrra;
 }			t_stack;
-
-typedef struct s_move
-{
-	int		*rmove;
-	int		*rrmove;
-	int		*rarrbmove;
-	int		*rbrramove;
-	int		*num_move;
-	int		num;
-	int		position;
-}			t_move;	
 
 /*split*/
 char	**ft_split(char *str);
@@ -76,21 +72,16 @@ int		is_circular(int *arr, int size);
 
 /*free and exit*/
 void	free_exit(t_stack *s, char *msg);
-void	free_move(t_move *move, char *msg);
 
-/*rotate_move*/
-void	rotate_move(t_stack *stack, t_move *move);
-void	rrotate_move(t_stack *stack, t_move *move);
-void	rarrbrotate_move(t_stack *stack, t_move *move);
-void	rbrrarotate_move(t_stack *stack, t_move *move);
+/*info table*/
+void	highest_b(t_stack *stack);
+void	lowest_b(t_stack *stack);
+int		position_b(t_stack *stack, int i);
 
-/*best_num_to_b*/
-void	count_move(t_stack *stack, t_move *move);
-void	best_num_to_b(t_stack *stack, t_move *move);
-int		position_b(t_stack *stack, t_move *move);
-
-/*move_to_b*/
-void	move_to_b(t_stack *stack, t_move *move);
+/*table*/
+void	init_table(t_stack	*stack);
+void	fill_table(t_stack *stack);
+int		movements_num(t_stack *s, int i);
 
 /*sort_max*/
 void	rank_whatever(t_stack *stack);

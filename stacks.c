@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 09:44:30 by ngastana          #+#    #+#             */
-/*   Updated: 2024/02/22 16:52:43 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/03/01 18:22:03 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	fill_stack_argu_two(t_stack *stack, char **argv)
 	while (split[i])
 	{
 		stack->a[i] = atoi_long(split[i]);
-		if (!(stack->a[i]))
+		if (!(stack->a[i] && stack->a[i] != 0))
 			free_exit(stack, "Error\n");
 		i++;
 	}
@@ -72,7 +72,7 @@ void	fill_stack(t_stack *stack, int argc, char **argv)
 		while (i < argc -1)
 		{
 			stack->a[i] = atoi_long(argv[i +1]);
-			if (!(stack->a[i]))
+			if (!(stack->a[i]) && stack->a[i] != 0)
 				free_exit(stack, "Error\n");
 			i++;
 		}

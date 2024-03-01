@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:59:20 by ngastana          #+#    #+#             */
-/*   Updated: 2024/02/28 10:23:55 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/03/01 18:21:30 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,6 @@ int	main(int argc, char **argv)
 		if (stack->a_size == 3 || stack->a_size == 2)
 			free_exit (stack, "");
 		rank_four_five(stack);
-		push("pb", stack);
-		push("pb", stack);
-		push("pb", stack);
-		rank_three_b(stack, stack->b, stack->b_size);
 		rank_whatever(stack);
 		while (i++ < stack->a_size -1)
 			printf("%i\n", stack->a[i]);

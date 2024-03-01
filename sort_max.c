@@ -6,28 +6,14 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:00:00 by ngastana          #+#    #+#             */
-/*   Updated: 2024/02/27 19:04:18 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/03/01 18:49:59 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	init_move(t_stack *stack, t_move *move)
+static void	start_rank_whatever(t_stack *stack)
 {
-	move->rmove = malloc (sizeof(int) * stack->a_size);
-	move->rrmove = malloc (sizeof(int) * stack->a_size);
-	move->rbrramove = malloc (sizeof(int) * stack->a_size);
-	move->rarrbmove = malloc (sizeof(int) * stack->a_size);
-	move->num_move = malloc (sizeof(int) * stack->a_size);
-	if (!(move->rmove || move->rrmove || move->rarrbmove || move->rbrramove))
-		free_move(move, "Error\n");
-	else if (!(move->num_move))
-		free_move(move, "Error\n");
-}
-
-void	rank_whatever(t_stack *stack)
-{
-	t_move	*move;
 	int		size;
 
 	size = stack->a_size;
@@ -39,12 +25,20 @@ void	rank_whatever(t_stack *stack)
 			rotate(stack->a, stack->a_size, "up", 'a');
 	if (verify_order(stack->a, stack->a_size) == 0)
 		free_exit(stack, "");
-	move = malloc(sizeof(t_move) * 1);
-	if (!move)
-		exit(1);
-	init_move(stack, move);
+	push("pb", stack);
+	push("pb", stack);
+	push("pb", stack);
+	rank_three_b(stack, stack->b, stack->b_size);
+}
+
+void	rank_whatever(t_stack *stack)
+{
+	start_rank_whatever(stack);
+	init_table(stack);
 	while (stack->a_size > 0)
-		move_to_b(stack, move);
+	{
+		push("pb", stack);
+	}
 	while (stack->b_size > 0)
 		push("pa", stack);
 }
