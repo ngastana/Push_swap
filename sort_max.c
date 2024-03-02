@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:00:00 by ngastana          #+#    #+#             */
-/*   Updated: 2024/03/01 18:49:59 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/03/02 10:16:55 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,26 @@ static void	start_rank_whatever(t_stack *stack)
 
 void	rank_whatever(t_stack *stack)
 {
+	int	size;
+
+	size = stack->a_size;
 	start_rank_whatever(stack);
 	init_table(stack);
 	while (stack->a_size > 0)
 	{
-		push("pb", stack);
+		highest_b(stack);
+		lowest_b(stack);
+		fill_table(stack);
+		how_much_moviments(stack);
+		less_moviments(stack);
 	}
 	while (stack->b_size > 0)
 		push("pa", stack);
+	if (is_circular(stack->a, size) && f_s_place(stack->a, size) > size / 2)
+		while (verify_order(stack->a, stack->a_size) == 1)
+			rotate(stack->a, stack->a_size, "down", 'a');
+	if (is_circular(stack->a, size) && f_s_place(stack->a, size) < size / 2)
+		while (verify_order(stack->a, stack->a_size) == 1)
+			rotate(stack->a, stack->a_size, "up", 'a');
+	free_exit (stack, "");
 }

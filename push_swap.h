@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:26:16 by ngastana          #+#    #+#             */
-/*   Updated: 2024/03/01 19:24:22 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/03/02 10:02:59 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_stack
 	int		rr;
 	int		rarrb;
 	int		rbrra;
+	int		pos_mov;
 }			t_stack;
 
 /*split*/
@@ -81,7 +82,13 @@ int		position_b(t_stack *stack, int i);
 /*table*/
 void	init_table(t_stack	*stack);
 void	fill_table(t_stack *stack);
-int		movements_num(t_stack *s, int i);
+
+/*how_move_rr_rrr*/
+void	how_much_moviments(t_stack *stack);
+void	less_moviments(t_stack *stack);
+
+/*move*/
+void	move(t_stack *stack, int i);
 
 /*sort_max*/
 void	rank_whatever(t_stack *stack);

@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:59:20 by ngastana          #+#    #+#             */
-/*   Updated: 2024/03/01 18:21:30 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/03/02 10:11:20 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ int	main(int argc, char **argv)
 			free_exit (stack, "");
 		rank_four_five(stack);
 		rank_whatever(stack);
-		while (i++ < stack->a_size -1)
-			printf("%i\n", stack->a[i]);
 		write (1, "\n", 1);
 	}
 	return (0);
