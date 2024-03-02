@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 08:50:11 by ngastana          #+#    #+#             */
-/*   Updated: 2024/02/28 12:07:00 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/03/02 11:00:50 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ void	rank_four_five(t_stack *stack)
 			push("pa", stack);
 			i--;
 		}
-		i = -1;
 		free_exit(stack, "");
 	}
 }

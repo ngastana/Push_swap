@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 09:59:29 by ngastana          #+#    #+#             */
-/*   Updated: 2024/03/02 10:18:58 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/03/02 11:57:42 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@ void	free_exit(t_stack *stack, char *msg)
 {
 	int	i;
 
-	i = -1;
-	while (i++ < stack->a_size -1)
-		printf("%i\n", stack->a[i]);
 	i = -1;
 	if (msg)
 		while (msg[i++])
