@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:59:20 by ngastana          #+#    #+#             */
-/*   Updated: 2024/03/02 10:11:20 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/03/06 12:31:32 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 int	main(int argc, char **argv)
 {
 	t_stack	*stack;
-	int		i;
 
-	i = -1;
 	if (argc > 1)
 	{
 		check_arguments(argv, argc);

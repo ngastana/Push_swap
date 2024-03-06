@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:18:49 by ngastana          #+#    #+#             */
-/*   Updated: 2024/02/21 11:15:12 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/03/06 10:40:38 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,27 +54,27 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 long	atoi_long(char *str)
 {
 	long	i;
-	long	n;
+	int		n;
 	long	nb;
 
 	i = 0;
 	n = 1;
 	nb = 0;
-	while (str[i] == 32 || (str[i] < 14 && str[i] > 8))
+	while (str[i] == ' ' || (str[i] < 14 && str[i] > 8))
 		i++;
-	while (str[i] == 43 && (str[i +1] != 43 && str[i +1] != 45))
+	while (str[i] == '+' && (str[i +1] != ' ' && str[i +1] != '-'))
 		i++;
-	if (str[i] == 45)
+	if (str[i] == '-')
 	{
 		i++;
 		n = n * -1;
 	}
-	while (str[i] >= 48 && str[i] <= 57)
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		nb = (str[i] -48) + (nb * 10);
+		nb = (str[i] - '0') + (nb * 10);
 		i++;
 	}
-	return (nb * n);
+	return ((long)(nb * n));
 }
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)

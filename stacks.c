@@ -6,33 +6,46 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 09:44:30 by ngastana          #+#    #+#             */
-/*   Updated: 2024/03/01 18:22:03 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/03/06 12:18:46 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	init_stacks(t_stack *stack, int argc, char **argv)
+static void	check_commas_space(t_stack *stack, char **argv)
 {
 	int	i;
 
 	i = 0;
-	stack->a_size = 1;
-	if (argc == 2)
+	while (argv[1][i] == ' ')
+		i++;
+	while (argv[1][i] != '\0')
 	{
-		while (argv[1][i] == ' ')
+		while (argv[1][i] == ' ' && argv[1][i +1] == ' ')
 			i++;
-		while (argv[1][i] != '\0')
+		if (argv[1][i] == ' ' && argv[1][i +1] == '\0')
+			i++;
+		if (argv[1][i] == ' ' && argv[1][i +1] == ',')
+			i++;
+		if (argv[1][i] == ',' && argv[1][i +1] == ' ')
 		{
+			i++;
 			while (argv[1][i] == ' ' && argv[1][i +1] == ' ')
 				i++;
-			if (argv[1][i] == ' ' && argv[1][i +1] == '\0')
-				i++;
-			if (argv[1][i] == ' ')
-				stack->a_size = stack->a_size +1;
-			i++;
+			if (argv[1][i +1] == '\0')
+				free_exit(stack, "Error\n");
 		}
+		if (argv[1][i] == ' ')
+			stack->a_size = stack->a_size +1;
+		i++;
 	}
+}
+
+void	init_stacks(t_stack *stack, int argc, char **argv)
+{
+	stack->a_size = 1;
+	if (argc == 2)
+		check_commas_space(stack, argv);
 	else
 		stack->a_size = argc -1;
 	stack->a = malloc (sizeof(int) * stack->a_size);
@@ -41,10 +54,20 @@ void	init_stacks(t_stack *stack, int argc, char **argv)
 		free_exit(stack, "Error\n");
 }
 
+static int	check_int_max_min(long num)
+{
+	if (num < INT_MIN)
+		return (1);
+	else if (num > INT_MAX)
+		return (1);
+	return (0);
+}
+
 static void	fill_stack_argu_two(t_stack *stack, char **argv)
 {
 	char	**split;
 	int		i;
+	long	num;
 
 	i = 0;
 	split = ft_split(argv[1]);
@@ -52,9 +75,10 @@ static void	fill_stack_argu_two(t_stack *stack, char **argv)
 		free_exit(stack, "Error\n");
 	while (split[i])
 	{
-		stack->a[i] = atoi_long(split[i]);
-		if (!(stack->a[i] && stack->a[i] != 0))
+		num = atoi_long(split[i]);
+		if (check_int_max_min(num) == 1)
 			free_exit(stack, "Error\n");
+		stack->a[i] = atoi_long(split[i]);
 		i++;
 	}
 	free (split);

@@ -6,23 +6,43 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 13:03:27 by ngastana          #+#    #+#             */
-/*   Updated: 2024/03/05 16:47:05 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/03/06 12:34:03 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static int	check_int_max_min(char	**argv)
+{
+	int		i;
+	long	num;
+
+	i = 0;
+	while (argv[i])
+	{
+		num = atoi_long(argv[i]);
+		if (num < INT_MIN)
+			return (1);
+		else if (num > INT_MAX)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 static int	check_util(char c, char c1)
 {
-	if (c == '+' && c1 == '\0')
-		return (1);
-	else if (c == '-' && c1 == '\0')
+	if ((c == '+' || c == '-' || c == ',') && c1 == '\0')
 		return (1);
 	else if (c == '+' && c1 == ' ')
 		return (1);
 	else if (c == '-' && c1 == ' ')
 		return (1);
-	else if (c == ' ' || c == '-' || c == '+')
+	else if (c == '-' && c1 == '-')
+		return (1);
+	if (c == ',' && c1 == ',')
+		return (1);
+	else if (c == ' ' || c == '-' || c == '+' || c == ',')
 		return (0);
 	else if ((c > '9' || c < '0'))
 		return (1);
@@ -30,7 +50,6 @@ static int	check_util(char c, char c1)
 		return (0);
 }
 
-// CUANDO PONGO 0 ME DA ERROR Y SI QUITO ESTE ERROR SE ME DESACAPRECE POQUE
 void	check_arguments(char **argv, int argc)
 {
 	int	i;
@@ -42,7 +61,11 @@ void	check_arguments(char **argv, int argc)
 		j = 0;
 		while (argv[i][j])
 		{
+			if (argv[1][0] == ',')
+				free_exit (NULL, "Error\n");
 			if (check_util(argv[i][j], argv[i][j +1]) == 1)
+				free_exit (NULL, "Error\n");
+			else if (check_int_max_min(argv) == 1)
 				free_exit (NULL, "Error\n");
 			j++;
 		}

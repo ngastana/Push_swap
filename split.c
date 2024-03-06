@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 17:12:03 by ngastana          #+#    #+#             */
-/*   Updated: 2024/02/09 11:18:41 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/03/06 11:47:54 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_is_delimiter(char c)
 {
-	return (c == ' ' || c == '\n' || c == '\t');
+	return (c == ' ' || c == '\n' || c == '\t' || c == ',');
 }
 
 static int	ft_words_len(char *str)
