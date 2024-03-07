@@ -6,11 +6,26 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:59:20 by ngastana          #+#    #+#             */
-/*   Updated: 2024/03/06 12:31:32 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/03/07 20:30:47 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	*ft_memset(void *str, int c, size_t n)
+{
+	char	*s;
+	size_t	i;
+
+	s = str;
+	i = 0;
+	while (i < n)
+	{
+		s[i] = c;
+		i++;
+	}
+	return (s);
+}
 
 int	main(int argc, char **argv)
 {
@@ -22,6 +37,7 @@ int	main(int argc, char **argv)
 		stack = malloc (sizeof(t_stack) * 1);
 		if (!stack)
 			exit(1);
+		ft_memset(stack, 0, sizeof(t_stack));
 		init_stacks(stack, argc, argv);
 		fill_stack(stack, argc, argv);
 		check_duplicate(stack);

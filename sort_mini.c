@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 08:50:11 by ngastana          #+#    #+#             */
-/*   Updated: 2024/03/02 11:00:50 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/03/07 20:26:36 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	rank_three_a(t_stack *s, int *stack, int size)
 
 void	rank_three_b(t_stack *s, int *stack, int size)
 {
-	if (size == 3 && verify_order(stack, size) == 1)
+	if (size == 3)
 	{
 		if (stack[1] < stack[2] && stack[0] < stack[1])
 		{
@@ -56,30 +56,30 @@ void	rank_three_b(t_stack *s, int *stack, int size)
 	}
 }
 
-void	rank_four_five(t_stack *stack)
+void	rank_four_five(t_stack *s)
 {
 	int	i;
 
 	i = 1;
-	if (stack->a_size == 5)
+	if (s->a_size == 5)
 		i = 2;
-	if ((stack->a_size == 5 || stack->a_size == 4))
+	if ((s->a_size == 5 || s->a_size == 4) && verify_order(s->a, s->a_size))
 	{
-		while (stack->b_size != i && verify_order(stack->a, stack->a_size) == 1)
+		while (s->b_size != i && verify_order(s->a, s->a_size) == 1)
 		{
-			if (f_s_place(stack->a, stack->a_size) == 0)
-				push("pb", stack);
-			else if (f_s_place(stack->a, stack->a_size) < 3)
-				rotate(stack->a, stack->a_size, "up", 'a');
-			else if (f_s_place(stack->a, stack->a_size) >= 3)
-				rotate(stack->a, stack->a_size, "down", 'a');
+			if (f_s_place(s->a, s->a_size) == 0)
+				push("pb", s);
+			else if (f_s_place(s->a, s->a_size) < 3)
+				rotate(s->a, s->a_size, "up", 'a');
+			else if (f_s_place(s->a, s->a_size) >= 3)
+				rotate(s->a, s->a_size, "down", 'a');
 		}
-		rank_three_a(stack, stack->a, stack->a_size);
+		rank_three_a(s, s->a, s->a_size);
 		while (i != 0)
 		{
-			push("pa", stack);
+			push("pa", s);
 			i--;
 		}
-		free_exit(stack, "");
+		free_exit(s, "");
 	}
 }

@@ -6,34 +6,63 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 07:48:42 by ngastana          #+#    #+#             */
-/*   Updated: 2024/02/28 13:58:50 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/03/07 20:30:41 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static void	ft_push_b(t_stack *stack)
+{
+	int	i;
+
+	if (stack->a > 0)
+	{
+		i = stack->b_size;
+		while (i > 0)
+		{
+			stack->b[i] = stack->b[i - 1];
+			i--;
+		}
+		stack->b[0] = stack->a[0];
+		i = 0;
+		while (i < stack->a_size - 1)
+		{
+			stack->a[i] = stack->a[i + 1];
+			i++;
+		}
+		stack->a_size--;
+		stack->b_size++;
+	}
+}
+
+static void	ft_push_a(t_stack *stack)
+{
+	int	i;
+
+	i = stack->a_size;
+	while (i > 0)
+	{
+		stack->a[i] = stack->a[i - 1];
+		i--;
+	}
+	stack->a[0] = stack->b[0];
+	i = 0;
+	while (i < stack->b_size - 1)
+	{
+		stack->b[i] = stack->b[i + 1];
+		i++;
+	}
+	stack->a_size++;
+	stack->b_size--;
+}
+
 void	push(char *str, t_stack *stack)
 {
 	if (str[1] == 'a')
-	{
-		if (stack->b_size <= 0)
-			return ;
-		stack->a_size++;
-		ft_memmove(stack->a + 1, stack->a, sizeof(int) * stack->a_size);
-		stack->a[0] = stack->b[0];
-		stack->b_size--;
-		ft_memmove(stack->b, stack->b + 1, sizeof(int) * stack->b_size);
-	}
+		ft_push_a(stack);
 	else if (str[1] == 'b')
-	{
-		if (stack->a_size <= 0)
-			return ;
-		stack->b_size++;
-		ft_memmove(stack->b + 1, stack->b, sizeof(int) * stack->b_size);
-		stack->b[0] = stack->a[0];
-		stack->a_size--;
-		ft_memmove(stack->a, stack->a + 1, sizeof(int) * stack->a_size);
-	}
+		ft_push_b(stack);
 	putstr(str);
 }
 
