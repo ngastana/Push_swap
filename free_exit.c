@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 09:59:29 by ngastana          #+#    #+#             */
-/*   Updated: 2024/03/02 11:57:42 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/03/08 18:17:02 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ void	free_exit(t_stack *stack, char *msg)
 		if (stack->table != NULL)
 		{
 			i = 0;
-			while (stack->table[i++] != NULL)
+			while (stack->table[i] != NULL)
 			{
 				free(stack->table[i]);
-				stack->table[i] = NULL;
+				i++;
 			}
+			free (stack->table);
 		}
-		if (stack != NULL)
-			free (stack);
+		free (stack);
 	}
 	exit(1);
 }

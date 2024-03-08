@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 13:03:27 by ngastana          #+#    #+#             */
-/*   Updated: 2024/03/06 12:34:03 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/03/08 18:37:30 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ static int	check_util(char c, char c1)
 	else if (c == '-' && c1 == '-')
 		return (1);
 	if (c == ',' && c1 == ',')
+		return (1);
+	else if ((c < '9' && c > '0') && (c1 == '-' || c1 == '+'))
 		return (1);
 	else if (c == ' ' || c == '-' || c == '+' || c == ',')
 		return (0);
