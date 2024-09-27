@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 09:59:29 by ngastana          #+#    #+#             */
-/*   Updated: 2024/03/08 18:17:02 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/03/12 15:22:11 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	free_exit(t_stack *stack, char *msg)
 	i = -1;
 	if (msg)
 		while (msg[i++])
-			write (1, &msg[i], 1);
+			write (2, &msg[i], 1);
 	if (stack != NULL)
 	{
 		if (stack->a != NULL)

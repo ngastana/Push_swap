@@ -6,13 +6,13 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 09:44:30 by ngastana          #+#    #+#             */
-/*   Updated: 2024/03/06 12:18:46 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/03/12 14:12:51 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	check_commas_space(t_stack *stack, char **argv)
+static void	check_space(t_stack *stack, char **argv)
 {
 	int	i;
 
@@ -25,16 +25,6 @@ static void	check_commas_space(t_stack *stack, char **argv)
 			i++;
 		if (argv[1][i] == ' ' && argv[1][i +1] == '\0')
 			i++;
-		if (argv[1][i] == ' ' && argv[1][i +1] == ',')
-			i++;
-		if (argv[1][i] == ',' && argv[1][i +1] == ' ')
-		{
-			i++;
-			while (argv[1][i] == ' ' && argv[1][i +1] == ' ')
-				i++;
-			if (argv[1][i +1] == '\0')
-				free_exit(stack, "Error\n");
-		}
 		if (argv[1][i] == ' ')
 			stack->a_size = stack->a_size +1;
 		i++;
@@ -45,7 +35,7 @@ void	init_stacks(t_stack *stack, int argc, char **argv)
 {
 	stack->a_size = 1;
 	if (argc == 2)
-		check_commas_space(stack, argv);
+		check_space(stack, argv);
 	else
 		stack->a_size = argc -1;
 	stack->a = malloc (sizeof(int) * stack->a_size);
@@ -95,6 +85,7 @@ void	fill_stack(t_stack *stack, int argc, char **argv)
 	{
 		while (i < argc -1)
 		{
+			check_phrase(stack, argv[i +1]);
 			stack->a[i] = atoi_long(argv[i +1]);
 			if (!(stack->a[i]) && stack->a[i] != 0)
 				free_exit(stack, "Error\n");

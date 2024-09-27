@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 13:03:27 by ngastana          #+#    #+#             */
-/*   Updated: 2024/03/08 18:37:30 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/03/12 15:02:36 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	check_int_max_min(char	**argv)
 
 static int	check_util(char c, char c1)
 {
-	if ((c == '+' || c == '-' || c == ',') && c1 == '\0')
+	if ((c == '+' || c == '-') && c1 == '\0')
 		return (1);
 	else if (c == '+' && c1 == ' ')
 		return (1);
@@ -40,11 +40,15 @@ static int	check_util(char c, char c1)
 		return (1);
 	else if (c == '-' && c1 == '-')
 		return (1);
-	if (c == ',' && c1 == ',')
+	else if (c == '+' && c1 == '-')
+		return (1);
+	else if (c == '-' && c1 == '+')
+		return (1);
+	else if (c == '+' && c1 == '+')
 		return (1);
 	else if ((c < '9' && c > '0') && (c1 == '-' || c1 == '+'))
 		return (1);
-	else if (c == ' ' || c == '-' || c == '+' || c == ',')
+	else if (c == ' ' || c == '-' || c == '+')
 		return (0);
 	else if ((c > '9' || c < '0'))
 		return (1);
@@ -90,6 +94,22 @@ void	check_duplicate(t_stack *stack)
 				free_exit (stack, "Error\n");
 			j++;
 		}
+		i++;
+	}
+}
+
+void	check_phrase(t_stack *stack, char *argv)
+{
+	int	i;
+
+	i = 0;
+	if (argv == NULL)
+		free_exit (stack, "Error\n");
+	while (argv[i] != '\0')
+	{
+		if (argv[i] == ' ' || argv[i] == '\n' || argv[i] == '\t' \
+		|| argv[i] == '\v' || argv[i] == '\f' || argv[i] == '\r')
+			free_exit (stack, "Error\n");
 		i++;
 	}
 }

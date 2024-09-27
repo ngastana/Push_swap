@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:26:16 by ngastana          #+#    #+#             */
-/*   Updated: 2024/03/06 10:08:20 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/03/12 14:13:10 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void	rank_four_five(t_stack *stack);
 void	check_arguments(char **argv, int argc);
 void	check_duplicate(t_stack *stack);
 int		is_circular(int *arr, int size);
+void	check_phrase(t_stack *stack, char *argv);
 
 /*free and exit*/
 void	free_exit(t_stack *s, char *msg);

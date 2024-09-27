@@ -6,7 +6,7 @@
 /*   By: ngastana  < ngastana@student.42urduliz.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 08:50:11 by ngastana          #+#    #+#             */
-/*   Updated: 2024/03/07 20:26:36 by ngastana         ###   ########.fr       */
+/*   Updated: 2024/03/12 12:47:29 by ngastana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,8 @@ void	rank_four_five(t_stack *s)
 				rotate(s->a, s->a_size, "down", 'a');
 		}
 		rank_three_a(s, s->a, s->a_size);
-		while (i != 0)
-		{
+		while (s->b_size != 0)
 			push("pa", s);
-			i--;
-		}
 		free_exit(s, "");
 	}
 }
