@@ -27,21 +27,21 @@ These are the moves your program thinks will sort the list.
 Each operation modifies the stacks — like a puzzle where you can only make certain moves.
 
 ## 🧱 The Rules
-You start with:
-    Stack A — contains all the numbers you need to sort.
-    Stack B — empty at the beginning.
-You can use these moves:
-    sa	Swap the first 2 elements of A
-    sb	Swap the first 2 elements of B
-    ss	sa and sb at the same time
-    pa	Push the top element of B onto A
-    pb	Push the top element of A onto B
-    ra	Rotate A (first element becomes last)
-    rb	Rotate B
-    rr	ra and rb at the same time
-    rra	Reverse rotate A (last element becomes first)
-    rrb	Reverse rotate B
-    rrr	rra and rrb at the same time
+    You start with:
+        Stack A — contains all the numbers you need to sort.
+        Stack B — empty at the beginning.
+    You can use these moves:
+        sa	Swap the first 2 elements of A
+        sb	Swap the first 2 elements of B
+        ss	sa and sb at the same time
+        pa	Push the top element of B onto A
+        pb	Push the top element of A onto B
+        ra	Rotate A (first element becomes last)
+        rb	Rotate B
+        rr	ra and rb at the same time
+        rra	Reverse rotate A (last element becomes first)
+        rrb	Reverse rotate B
+        rrr	rra and rrb at the same time
 
 ## 🧰 Example
   🔨 Compilation
