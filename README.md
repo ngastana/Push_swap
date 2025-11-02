@@ -26,7 +26,7 @@ pa
 These are the moves your program thinks will sort the list.
 Each operation modifies the stacks — like a puzzle where you can only make certain moves.
 
-🧱 The Rules
+## 🧱 The Rules
 You start with:
     Stack A — contains all the numbers you need to sort.
     Stack B — empty at the beginning.
@@ -43,17 +43,17 @@ You can use these moves:
     rrb	Reverse rotate B
     rrr	rra and rrb at the same time
 
-🧰 Example
+## 🧰 Example
   🔨 Compilation
     make
   ▶️ Run example
     ./push_swap 3 2 1
 
-⚙️ Allowed Functions
+## ⚙️ Allowed Functions
   write, read, malloc, free, exit
 
 
-💥 Error Handling
+## 💥 Error Handling
     ❌ If there are duplicates → print Error
     ⚠️ If a number is not an integer → print Error
     🚫 If arguments are invalid → print Error
